@@ -33,14 +33,7 @@ extension MainFlowTests {
     func tapOnStartButton() {
         tapOnView("start_button")
     }
-    
-    func tapCorrectAnswer() {
-        tapOnView("correct")
-    }
-    
-    func tapIncorrectAnswer() {
-        tapOnView("incorrect")
-    }
+
     
     // MARK: - Views expected
     
@@ -54,6 +47,10 @@ extension MainFlowTests {
     
     func expectToSeeSuccessView() {
         expectToSee("success_view")
+    }
+    
+    func expectToSeeLoadingView() {
+        expectToSee("loading_view")
     }
     
     func getScore() -> Int {

@@ -41,7 +41,7 @@ extension BaseUITest {
     
     func popToRootView() {
         guard let navigation = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
-        navigation.popToRootViewController(animated: true)
+        navigation.popToRootViewController(animated: false)
         
     }
 }

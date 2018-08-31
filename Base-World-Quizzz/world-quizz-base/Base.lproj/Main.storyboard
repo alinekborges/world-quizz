@@ -34,27 +34,40 @@
                                     <action selector="playButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YwW-XE-cRv"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZeD-xU-fwp">
-                                <rect key="frame" x="177.5" y="511" width="20" height="20"/>
-                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ooops! Error!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3V-Aw-k0Y">
                                 <rect key="frame" x="136" y="614" width="103" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.094373914930555552" blue="0.073404947916666671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6K-Bd-I2q">
+                                <rect key="frame" x="112" y="446" width="151" height="151"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZeD-xU-fwp">
+                                        <rect key="frame" x="65" y="65" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.50674229452054798" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="loading_view"/>
+                                <constraints>
+                                    <constraint firstItem="ZeD-xU-fwp" firstAttribute="centerX" secondItem="d6K-Bd-I2q" secondAttribute="centerX" id="cpe-OI-14H"/>
+                                    <constraint firstItem="ZeD-xU-fwp" firstAttribute="centerY" secondItem="d6K-Bd-I2q" secondAttribute="centerY" id="knx-si-IQX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" identifier="main_view"/>
                         <constraints>
+                            <constraint firstItem="d6K-Bd-I2q" firstAttribute="centerY" secondItem="xSq-V5-hTl" secondAttribute="centerY" id="89C-TT-hfC"/>
                             <constraint firstItem="NGQ-Wm-xFO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="124" id="CFB-vB-VrT"/>
-                            <constraint firstItem="ZeD-xU-fwp" firstAttribute="centerY" secondItem="xSq-V5-hTl" secondAttribute="centerY" id="Ehm-sY-fyD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NGQ-Wm-xFO" secondAttribute="trailing" constant="46" id="Op2-nP-crI"/>
+                            <constraint firstItem="d6K-Bd-I2q" firstAttribute="height" secondItem="xSq-V5-hTl" secondAttribute="height" id="bKN-7F-ocV"/>
                             <constraint firstItem="NGQ-Wm-xFO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="blE-G5-q8g"/>
-                            <constraint firstItem="ZeD-xU-fwp" firstAttribute="centerX" secondItem="xSq-V5-hTl" secondAttribute="centerX" id="fMm-Ta-s5B"/>
                             <constraint firstItem="O3V-Aw-k0Y" firstAttribute="top" secondItem="xSq-V5-hTl" secondAttribute="bottom" constant="17" id="fXx-zV-79t"/>
+                            <constraint firstItem="d6K-Bd-I2q" firstAttribute="centerX" secondItem="xSq-V5-hTl" secondAttribute="centerX" id="gi7-9s-gmL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xSq-V5-hTl" secondAttribute="bottom" constant="70" id="i5U-D1-DYX"/>
                             <constraint firstItem="O3V-Aw-k0Y" firstAttribute="centerX" secondItem="xSq-V5-hTl" secondAttribute="centerX" id="k9Q-Fc-ajc"/>
+                            <constraint firstItem="d6K-Bd-I2q" firstAttribute="width" secondItem="xSq-V5-hTl" secondAttribute="width" id="tpg-HZ-LXl"/>
                             <constraint firstItem="xSq-V5-hTl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yks-ni-u0E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -63,6 +76,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="ZeD-xU-fwp" id="Jfp-bh-BYk"/>
                         <outlet property="errorLabel" destination="O3V-Aw-k0Y" id="35Q-Ss-PsC"/>
+                        <outlet property="loadingView" destination="d6K-Bd-I2q" id="Kre-kq-nC3"/>
                         <outlet property="playButton" destination="xSq-V5-hTl" id="H50-UN-osx"/>
                         <segue destination="Wol-7l-vG1" kind="show" identifier="startQuizzSegue" id="Cec-zV-Omf"/>
                     </connections>
@@ -91,7 +105,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="TsM-ri-9jc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="Option 1" backgroundImage="Gradient">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -104,7 +118,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="cIt-c6-AXB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="Option 2" backgroundImage="Gradient">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -117,7 +131,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="EUi-mk-MAv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="Option 2" backgroundImage="Gradient">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

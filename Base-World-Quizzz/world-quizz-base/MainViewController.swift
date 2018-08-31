@@ -18,13 +18,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var loadingView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.activityIndicator.isHidden = true
         self.errorLabel.isHidden = true
-        self.activityIndicator.accessibilityIdentifier = "loading_view"
+        self.loadingView.isHidden = true
     }
     
     @IBAction func playButtonTap(_ sender: Any) {
@@ -33,15 +34,14 @@ class MainViewController: UIViewController {
     
     func downloadQuizz() {
         
-        self.playButton.alpha = 0.4
-        self.activityIndicator.isHidden = false
+        self.loadingView.isHidden = false
         self.activityIndicator.startAnimating()
         //self.playButton.isUserInteractionEnabled = false
         
         Alamofire.request(url).responseData { response in
             
             self.playButton.alpha = 1
-            self.activityIndicator.isHidden = true
+            self.loadingView.isHidden = true
             self.activityIndicator.stopAnimating()
             
             if response.response?.statusCode == 200, let data = response.data {

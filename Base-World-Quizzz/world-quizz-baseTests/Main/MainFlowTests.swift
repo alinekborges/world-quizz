@@ -14,14 +14,14 @@ import OHHTTPStubs
 class MainFlowTests: BaseUITest {
 
     override func beforeEach() {
-        self.mockAPI()
         popToRootView()
+        self.mockAPI()
+        print("before each")
     }
     
     override func tearDown() {
         OHHTTPStubs.removeAllStubs()
     }
-
 
 }
 
