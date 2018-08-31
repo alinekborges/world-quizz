@@ -8,9 +8,25 @@
 
 import Foundation
 import KIF
+import OHHTTPStubs
 
 //Steps for main flow
 extension MainFlowTests {
+    
+    func mockAPI() {
+        stub(condition: isHost("gist.githubusercontent.com")) { _ in
+            let stubPath = OHPathForFile("MockQuizzData.json", type(of: self))
+            return fixture(filePath: stubPath!)
+                .responseTime(0.5)
+        }
+    }
+    
+    func mockAPINotConnected() {
+        stub(condition: isHost("gist.githubusercontent.com")) { _ in
+            let notConnectedError = NSError(domain: NSURLErrorDomain, code: URLError.notConnectedToInternet.rawValue)
+            return OHHTTPStubsResponse(error:notConnectedError)
+        }
+    }
     
     // MARK: - User Actions
     

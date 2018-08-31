@@ -1,0 +1,14 @@
+{"questions": [
+    {
+        "imageURL": "",
+        "time": 1,
+        "incorrectAnswers": ["Incorrect1", "Incorrect2"],
+        "correctAnswer": "Correct1"
+    },
+    {
+        "imageURL": "",
+        "time": 100,
+        "incorrectAnswers": ["Incorrect1", "Incorrect2"],
+        "correctAnswer": "Correct2"
+    }]
+}
