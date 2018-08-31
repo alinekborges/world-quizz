@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         self.activityIndicator.isHidden = true
         self.errorLabel.isHidden = true
+        self.activityIndicator.accessibilityIdentifier = "loading_view"
     }
     
     @IBAction func playButtonTap(_ sender: Any) {
@@ -42,7 +43,7 @@ class MainViewController: UIViewController {
             self.activityIndicator.isHidden = true
             self.activityIndicator.stopAnimating()
             
-            if let data = response.data {
+            if response.response?.statusCode == 200, let data = response.data {
                 let decoder = JSONDecoder()
                 let quizz = try? decoder.decode(Quizz.self, from: data)
                 self.quizz = quizz

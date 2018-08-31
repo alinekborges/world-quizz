@@ -190,7 +190,7 @@ class QuizViewController: UIViewController {
             self.performSegue(withIdentifier: "resultScreenSegue", sender: nil)
         } else {
             let nextView = self.storyboard?.instantiateViewController(withIdentifier: "quizzViewController") as! QuizViewController
-            nextView.score = self.score + 1
+            nextView.score = self.score
             nextView.question = self.fullQuizz?.questions[currentQuestionPosition + 1]
             nextView.fullQuizz = self.fullQuizz
             self.navigationController?.pushViewController(nextView, animated: true)
