@@ -13,9 +13,12 @@ import OHHTTPStubs
 
 class MainFlowTests: BaseUITest {
     
-    override func beforeEach() {
-        super.beforeEach()
+    override func beforeAll() {
         self.mockAPI()
+    }
+    
+    override func beforeEach() {
+        popToRootView()
     }
     
     override func tearDown() {
@@ -26,6 +29,6 @@ class MainFlowTests: BaseUITest {
         tapOnStartButton()
         expectToSeeQuizzView()
     }
-    
+
 }
 

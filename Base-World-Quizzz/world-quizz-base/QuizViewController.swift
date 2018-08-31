@@ -123,7 +123,11 @@ class QuizViewController: UIViewController {
         
         zip(answers, answersButtons).forEach { answer, button in
             button.setTitle(answer, for: .normal)
-            button.accessibilityIdentifier = answer
+            if answer == question.correctAnswer {
+                button.accessibilityIdentifier = "correct"
+            } else {
+                button.accessibilityIdentifier = "incorrect"
+            }
         }
         
     }

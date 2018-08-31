@@ -16,7 +16,7 @@ extension MainFlowTests {
     func mockAPI() {
         stub(condition: isHost("gist.githubusercontent.com")) { _ in
             let stubPath = OHPathForFile("MockQuizzData.json", type(of: self))
-            return fixture(filePath: stubPath!)
+            return fixture(filePath: stubPath!, headers: nil)
                 .responseTime(0.5)
         }
     }
@@ -34,10 +34,26 @@ extension MainFlowTests {
         tapOnView("start_button")
     }
     
+    func tapCorrectAnswer() {
+        tapOnView("correct")
+    }
+    
+    func tapIncorrectAnswer() {
+        tapOnView("incorrect")
+    }
+    
     // MARK: - Views expected
     
     func expectToSeeQuizzView() {
         expectToSee("quizz_view")
+    }
+    
+    func expectToSeeErrorView() {
+        expectToSee("error_view")
+    }
+    
+    func expectToSeeSuccessView() {
+        expectToSee("success_view")
     }
     
     func expectScore(_ score: Int) {

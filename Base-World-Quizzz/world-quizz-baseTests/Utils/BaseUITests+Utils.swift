@@ -34,7 +34,14 @@ extension BaseUITest {
         tester().enterText(text, intoViewWithAccessibilityIdentifier: view)
     }
     
-    func expect(_ accessibilityIdentifier: String, toContainText text: String) -> String {
-        tester().expect(accessibilityIdentifier, toContainText: text)
+    func expect(_ accessibilityIdentifier: String, toContainText text: String) {
+        let view = tester().waitForView(withAccessibilityIdentifier: accessibilityIdentifier)
+        tester().expect(view, toContainText: text)
+    }
+    
+    func popToRootView() {
+        guard let navigation = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+        navigation.popToRootViewController(animated: true)
+        
     }
 }
