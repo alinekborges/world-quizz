@@ -23,7 +23,9 @@ class QuizViewController: UIViewController {
     @IBOutlet var answersButtons: [UIButton]!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var successLabel: UILabel!
     @IBOutlet weak var timeFilterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var errorLabel: UILabel!
     
     var animator: UIViewPropertyAnimator?
     
@@ -87,6 +89,15 @@ class QuizViewController: UIViewController {
             return
         }
         
+        self.answersButtons.forEach { button in
+            if button.currentTitle! != correctAnswer {
+                button.alpha = 0.4
+            } else {
+                self.showCorrectAnswer(button)
+            }
+        }
+        
+        
         if sender.currentTitle == correctAnswer {
             animateIsCorrectAnswer()
         } else {
@@ -99,6 +110,8 @@ class QuizViewController: UIViewController {
             button.layer.cornerRadius = 4.0
             button.clipsToBounds = true
         }
+        self.successLabel.isHidden = true
+        self.errorLabel.isHidden = true
     }
     
     func setupQuestion(_ question: Question?) {
@@ -122,14 +135,49 @@ class QuizViewController: UIViewController {
         return allQuestions
     }
     
+    func showCorrectAnswer(_ button: UIButton) {
+        button.alpha = 0.4
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            button.alpha = 1.0
+        }) { _ in
+            
+        }
+        
+    }
+    
     func animateIsCorrectAnswer() {
+        self.timer?.invalidate()
+        self.successLabel.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        self.successLabel.isHidden = false
+        self.score += self.question!.time * 10 - self.elapsedTime
         self.score += 1
-        navigateToNextQuestion()
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.successLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
+                self.navigateToNextQuestion()
+            })
+        }
+
     }
     
     func animateIsWrongAnswer() {
-        navigateToNextQuestion()
+        self.timer?.invalidate()
+        self.errorLabel.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        self.score += self.question!.time * 10 - self.elapsedTime
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.errorLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
+                self.navigateToNextQuestion()
+            })
+        }
+        
     }
+
     
     func navigateToNextQuestion() {
         let currentQuestionPosition = self.fullQuizz!.questions.index(of: self.question!)!

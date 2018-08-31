@@ -33,4 +33,8 @@ extension BaseUITest {
     func insertText(_ text: String, intoView view: String) {
         tester().enterText(text, intoViewWithAccessibilityIdentifier: view)
     }
+    
+    func expect(_ accessibilityIdentifier: String, toContainText text: String) -> String {
+        tester().expect(accessibilityIdentifier, toContainText: text)
+    }
 }

@@ -40,4 +40,8 @@ extension MainFlowTests {
         expectToSee("quizz_view")
     }
     
+    func expectScore(_ score: Int) {
+        expect("score_label", toContainText: String(score))
+    }
+    
 }

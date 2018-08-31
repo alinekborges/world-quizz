@@ -124,22 +124,36 @@
                                     <action selector="answerOnTap:" destination="Wol-7l-vG1" eventType="touchUpInside" id="6fH-HF-Nm4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzb-ny-Cc8">
-                                <rect key="frame" x="155" y="337" width="65" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzb-ny-Cc8">
+                                <rect key="frame" x="172" y="337" width="31" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="39"/>
                                 <color key="textColor" red="1" green="0.5450980392" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S27-lW-VZg" userLabel="TimerFilterView">
-                                <rect key="frame" x="20" y="-163.5" width="335" height="239.5"/>
+                                <rect key="frame" x="20" y="-164" width="335" height="239.5"/>
                                 <color key="backgroundColor" white="1" alpha="0.61362906678082196" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔︎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G57-w8-vS7">
+                                <rect key="frame" x="122" y="103.5" width="130" height="185"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="155"/>
+                                <color key="textColor" red="0.3144376874" green="0.8898145556" blue="0.7598797679" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC2-oq-0Ij">
+                                <rect key="frame" x="122" y="103.5" width="130" height="185"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="155"/>
+                                <color key="textColor" red="1" green="0.094373914929999997" blue="0.073404947920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration" identifier="quizz_view"/>
                         <constraints>
+                            <constraint firstItem="nC2-oq-0Ij" firstAttribute="centerY" secondItem="3KT-1N-MNe" secondAttribute="centerY" id="5Ne-2a-6Qt"/>
                             <constraint firstItem="S27-lW-VZg" firstAttribute="centerX" secondItem="pe0-8C-1jD" secondAttribute="centerX" id="7Nr-xn-23q"/>
                             <constraint firstItem="Rzb-ny-Cc8" firstAttribute="top" secondItem="3KT-1N-MNe" secondAttribute="bottom" constant="21.5" id="FTm-Au-dzY"/>
+                            <constraint firstItem="G57-w8-vS7" firstAttribute="centerX" secondItem="3KT-1N-MNe" secondAttribute="centerX" id="HbZ-HJ-4Oe"/>
                             <constraint firstItem="3KT-1N-MNe" firstAttribute="leading" secondItem="pe0-8C-1jD" secondAttribute="leading" constant="20" id="IC9-Rx-byK"/>
                             <constraint firstItem="qVD-8I-2MA" firstAttribute="centerX" secondItem="pe0-8C-1jD" secondAttribute="centerX" id="NY9-Ff-rAX"/>
                             <constraint firstItem="S27-lW-VZg" firstAttribute="width" secondItem="3KT-1N-MNe" secondAttribute="width" id="QZX-jM-XK0"/>
@@ -152,15 +166,19 @@
                             <constraint firstItem="ylN-Wa-lya" firstAttribute="centerX" secondItem="pe0-8C-1jD" secondAttribute="centerX" id="fWf-AD-HH1"/>
                             <constraint firstItem="qVD-8I-2MA" firstAttribute="width" secondItem="pzB-np-dC7" secondAttribute="width" id="fuu-Xd-kBl"/>
                             <constraint firstItem="S27-lW-VZg" firstAttribute="height" secondItem="3KT-1N-MNe" secondAttribute="height" id="ghS-OJ-seJ"/>
+                            <constraint firstItem="nC2-oq-0Ij" firstAttribute="centerX" secondItem="3KT-1N-MNe" secondAttribute="centerX" id="k7V-ZO-jAk"/>
                             <constraint firstItem="3KT-1N-MNe" firstAttribute="top" secondItem="pe0-8C-1jD" secondAttribute="top" constant="12" id="n1l-dX-h13"/>
                             <constraint firstItem="3KT-1N-MNe" firstAttribute="trailing" secondItem="pe0-8C-1jD" secondAttribute="trailing" constant="-20" id="pRw-vd-Ov9"/>
                             <constraint firstItem="Rzb-ny-Cc8" firstAttribute="centerX" secondItem="pe0-8C-1jD" secondAttribute="centerX" id="qAe-aa-xOu"/>
+                            <constraint firstItem="G57-w8-vS7" firstAttribute="centerY" secondItem="3KT-1N-MNe" secondAttribute="centerY" id="sBO-Ye-ScC"/>
                             <constraint firstItem="pzB-np-dC7" firstAttribute="centerX" secondItem="pe0-8C-1jD" secondAttribute="centerX" id="sFS-wK-Lgg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pe0-8C-1jD"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="nC2-oq-0Ij" id="DFU-5M-6OI"/>
                         <outlet property="imageView" destination="3KT-1N-MNe" id="wgC-28-VaA"/>
+                        <outlet property="successLabel" destination="G57-w8-vS7" id="abp-2a-RIt"/>
                         <outlet property="timeFilterConstraint" destination="ccc-oa-gPs" id="ZVO-l4-09m"/>
                         <outlet property="timerFilterView" destination="S27-lW-VZg" id="qoH-t0-lYr"/>
                         <outlet property="timerLabel" destination="Rzb-ny-Cc8" id="unn-4Y-rmH"/>
@@ -190,6 +208,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="105" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCr-Gs-lU6">
                                 <rect key="frame" x="129.5" y="247" width="117.5" height="76.5"/>
+                                <accessibility key="accessibilityConfiguration" identifier="score_label"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="64"/>
                                 <color key="textColor" red="1" green="0.5450980392" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
