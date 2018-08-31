@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     
     var quizz: Quizz?
     
-    let url = "https://gist.githubusercontent.com/alinekborges/3b1d1be3f286601d09af131fb0fb1cdf/raw/c2869f0e1ebd367aa12cc336c325fbfccf561c6b/sample-quizz.json"
+    let url = "https://gist.githubusercontent.com/alinekborges/3b1d1be3f286601d09af131fb0fb1cdf/raw/6028079c7da181385bd9fc6f4a756431a6951f10/sample-quizz.json"
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
         self.playButton.alpha = 0.4
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
+        //self.playButton.isUserInteractionEnabled = false
         
         Alamofire.request(url).responseData { response in
             

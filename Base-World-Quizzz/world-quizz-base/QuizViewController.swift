@@ -69,10 +69,6 @@ class QuizViewController: UIViewController {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { timer in
             self.elapsedTime += 1
             self.timerLabel.text = String(time - self.elapsedTime)
-            
-            if self.elapsedTime >= time {
-                timer.invalidate()
-            }
         })
         
         self.animator = UIViewPropertyAnimator(duration: TimeInterval(questionTime), curve: .linear, animations: {
@@ -112,6 +108,7 @@ class QuizViewController: UIViewController {
         }
         self.successLabel.isHidden = true
         self.errorLabel.isHidden = true
+        self.imageView.layer.cornerRadius = 20.0
     }
     
     func setupQuestion(_ question: Question?) {
@@ -123,11 +120,7 @@ class QuizViewController: UIViewController {
         
         zip(answers, answersButtons).forEach { answer, button in
             button.setTitle(answer, for: .normal)
-            if answer == question.correctAnswer {
-                button.accessibilityIdentifier = "correct"
-            } else {
-                button.accessibilityIdentifier = "incorrect"
-            }
+            button.accessibilityIdentifier = answer
         }
         
     }
@@ -186,7 +179,7 @@ class QuizViewController: UIViewController {
     func navigateToNextQuestion() {
         let currentQuestionPosition = self.fullQuizz!.questions.index(of: self.question!)!
         
-        if currentQuestionPosition == self.fullQuizz!.questions.count - 2 {
+        if currentQuestionPosition == self.fullQuizz!.questions.count - 1 {
             self.performSegue(withIdentifier: "resultScreenSegue", sender: nil)
         } else {
             let nextView = self.storyboard?.instantiateViewController(withIdentifier: "quizzViewController") as! QuizViewController

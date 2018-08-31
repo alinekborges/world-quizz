@@ -56,8 +56,9 @@ extension MainFlowTests {
         expectToSee("success_view")
     }
     
-    func expectScore(_ score: Int) {
-        expect("score_label", toContainText: String(score))
+    func getScore() -> Int {
+        let view = tester().waitForView(withAccessibilityIdentifier: "score_label") as! UILabel
+        return Int(view.text!)!
     }
     
 }

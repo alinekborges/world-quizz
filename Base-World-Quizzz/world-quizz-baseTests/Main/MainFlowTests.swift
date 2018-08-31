@@ -12,23 +12,16 @@ import OHHTTPStubs
 @testable import world_quizz_base
 
 class MainFlowTests: BaseUITest {
-    
-    override func beforeAll() {
-        self.mockAPI()
-    }
-    
+
     override func beforeEach() {
+        self.mockAPI()
         popToRootView()
     }
     
     override func tearDown() {
         OHHTTPStubs.removeAllStubs()
     }
-    
-    func test_clickStart_shouldGo_Quizz() {
-        tapOnStartButton()
-        expectToSeeQuizzView()
-    }
+
 
 }
 
