@@ -16,7 +16,6 @@ class MainFlowTests: BaseUITest {
     override func beforeEach() {
         popToRootView()
         self.mockAPI()
-        print("before each")
     }
     
     override func tearDown() {

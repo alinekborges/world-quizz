@@ -192,6 +192,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pe0-8C-1jD"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="dZ1-dR-AKo"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="errorLabel" destination="nC2-oq-0Ij" id="DFU-5M-6OI"/>
                         <outlet property="imageView" destination="3KT-1N-MNe" id="wgC-28-VaA"/>
@@ -231,7 +235,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3W-4N-OSP">
-                                <rect key="frame" x="153" y="597" width="70" height="30"/>
+                                <rect key="frame" x="153" y="553" width="70" height="30"/>
                                 <state key="normal" title="Play again">
                                     <color key="titleColor" red="1" green="0.5450980392" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
